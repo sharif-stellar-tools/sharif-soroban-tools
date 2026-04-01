@@ -1,1 +1,1 @@
-// Entry point for Soroban-Dev-Tools
+// File deleted - project rewritten to Rust CLI

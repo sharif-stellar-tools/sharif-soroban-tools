@@ -1,2 +1,1 @@
-// Core logic for Soroban-Dev-Tools
-#![no_std]
+// File deleted - project rewritten to Rust CLI
