@@ -1,0 +1,16 @@
+# Dependencies
+node_modules/
+
+# Test / build output
+coverage/
+dist/
+
+# Rust
+target/
+
+# Logs
+*.log
+npm-debug.log*
+
+# OS / editor
+.DS_Store
