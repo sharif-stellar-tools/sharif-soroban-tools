@@ -33,6 +33,26 @@ cd sharif-soroban-tools
 # (Refer to package.json or Cargo.toml for specific build commands)
 \\\
 
+## 🔍 Linting & Formatting
+
+This project uses [ESLint](https://eslint.org/) and [Prettier](https://prettier.io/) to enforce code quality and consistent formatting across all TypeScript/JavaScript sources.
+
+```bash
+# Run the linter (reports errors and warnings)
+npm run lint
+
+# Auto-fix lint issues where possible
+npm run lint:fix
+
+# Format all files with Prettier
+npm run format
+
+# Check formatting without writing changes (useful in CI)
+npm run format:check
+```
+
+> **Tip:** Run `npm run lint` and `npm run format:check` before opening a Pull Request to ensure your code meets the project standards.
+
 ## 🤝 Contributing
 We welcome contributions from the community! Please read our [Contributing Guidelines](./CONTRIBUTING.md) to get started. Before submitting a Pull Request, ensure that you have reviewed our [Code of Conduct](./CODE_OF_CONDUCT.md).
 

@@ -1,6 +1,7 @@
 // ESLint flat config (ESLint 9+)
 const js = require('@eslint/js');
 const tseslint = require('typescript-eslint');
+const eslintConfigPrettier = require('eslint-config-prettier');
 
 // Globals shared across the (small) JS/TS sources and the CommonJS config files.
 const sharedGlobals = {
@@ -40,4 +41,6 @@ module.exports = tseslint.config(
       '@typescript-eslint/no-require-imports': 'off',
     },
   },
+  // Must be last — disables ESLint rules that conflict with Prettier.
+  eslintConfigPrettier,
 );

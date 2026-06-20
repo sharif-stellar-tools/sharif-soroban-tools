@@ -1,8 +1,6 @@
 // Complex Core Engine Simulation
  import {
-  FeeBumpTransactionEnvelope,
   StellarEnvelope,
-  TransactionEnvelope,
   validateFeeBumpTransactionEnvelope,
   getTransactionEnvelopeFee,
   isFeeBumpTransactionEnvelope,
