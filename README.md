@@ -19,18 +19,23 @@ sharif-soroban-tools is a critical component of our decentralized ecosystem. Thi
 ## 🚀 Getting Started
 
 ### Prerequisites
+
 - Make sure you have the latest stable versions of our core toolchains (e.g., Node.js, Rust/Cargo) installed.
 - Ensure Docker is installed for running localized integration environments.
 
 ### Local Installation
 
 \\\ash
+
 # Clone the repository
+
 git clone https://github.com/YourOrganization/sharif-soroban-tools.git
 cd sharif-soroban-tools
 
 # Install dependencies and build
+
 # (Refer to package.json or Cargo.toml for specific build commands)
+
 \\\
 
 ## 🔍 Linting & Formatting
@@ -54,7 +59,9 @@ npm run format:check
 > **Tip:** Run `npm run lint` and `npm run format:check` before opening a Pull Request to ensure your code meets the project standards.
 
 ## 🤝 Contributing
+
 We welcome contributions from the community! Please read our [Contributing Guidelines](./CONTRIBUTING.md) to get started. Before submitting a Pull Request, ensure that you have reviewed our [Code of Conduct](./CODE_OF_CONDUCT.md).
 
 ## 📄 License
+
 This project is licensed under the MIT License. See the LICENSE file for more details.
