@@ -1,14 +1,12 @@
 // Complex Core Engine Simulation
- import {
-  FeeBumpTransactionEnvelope,
+import {
   StellarEnvelope,
-  TransactionEnvelope,
   validateFeeBumpTransactionEnvelope,
   getTransactionEnvelopeFee,
   isFeeBumpTransactionEnvelope,
 } from './transaction';
 
- export class CoreEngine {
+export class CoreEngine {
   constructor() {
     console.log('Engine initialized');
   }
@@ -30,14 +28,20 @@
     return true;
   }
 
-  public async submitEnvelope(envelope: StellarEnvelope, baseFee = 100): Promise<{ success: boolean; reason?: string }> {
+  public async submitEnvelope(
+    envelope: StellarEnvelope,
+    baseFee = 100,
+  ): Promise<{ success: boolean; reason?: string }> {
     const processed = await this.processTx(envelope, baseFee);
     if (!processed) {
-      return { success: false, reason: 'Invalid transaction envelope or fee bump validation failed.' };
+      return {
+        success: false,
+        reason: 'Invalid transaction envelope or fee bump validation failed.',
+      };
     }
     return { success: true };
   }
- }
+}
 // Update at 2026-03-12T11:13:33
 // Update at 2026-03-18T11:13:33
 // Update at 2026-03-24T11:13:33
