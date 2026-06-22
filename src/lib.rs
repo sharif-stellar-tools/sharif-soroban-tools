@@ -1,2 +1,2 @@
 // Core logic for Soroban-Dev-Tools
-#![no_std]
+pub mod deploy;
