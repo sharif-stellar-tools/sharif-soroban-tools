@@ -38,6 +38,15 @@ cd sharif-soroban-tools
 
 \\\
 
+### Fuzzing
+
+This project includes property-based fuzzing capabilities using the `arbitrary` crate and `cargo-fuzz`. Fuzzing automatically tests contracts against a wide range of unexpected inputs to find bugs and edge cases.
+
+See the [Fuzzing Guide](./docs/fuzzing.md) for detailed instructions on how to:
+- Run existing fuzz targets
+- Create custom fuzz targets
+- Integrate fuzzing into your CI/CD pipeline
+
 ## 🔍 Linting & Formatting
 
 This project uses [ESLint](https://eslint.org/) and [Prettier](https://prettier.io/) to enforce code quality and consistent formatting across all TypeScript/JavaScript sources.
