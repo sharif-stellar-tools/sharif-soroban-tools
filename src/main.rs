@@ -1,16 +1,29 @@
 mod deploy;
+mod tutorial;
 
-use clap::Parser;
+use clap::{Parser, Subcommand};
 use std::path::Path;
 use std::process;
 
 #[derive(Parser)]
+#[command(name = "sharif-soroban-tools", about = "CLI tools for Soroban smart contracts")]
 struct Cli {
-    #[arg(short, long)]
-    contract_path: String,
+    #[command(subcommand)]
+    command: Command,
 }
 
-fn validate_wasm_path(path: &str) -> Result<(), String> {
+#[derive(Subcommand)]
+enum Command {
+    /// Deploy a compiled WASM contract
+    Deploy {
+        #[arg(short, long)]
+        contract_path: String,
+    },
+    /// Interactive tutorial: walks through init → build → deploy
+    Tutorial,
+}
+
+pub fn validate_wasm_path(path: &str) -> Result<(), String> {
     let p = Path::new(path);
 
     if !p.exists() || !p.is_file() {
@@ -33,13 +46,19 @@ fn validate_wasm_path(path: &str) -> Result<(), String> {
 async fn main() {
     let cli = Cli::parse();
 
-    if let Err(e) = validate_wasm_path(&cli.contract_path) {
-        eprintln!("{}", e);
-        process::exit(1);
+    match cli.command {
+        Command::Deploy { contract_path } => {
+            if let Err(e) = validate_wasm_path(&contract_path) {
+                eprintln!("{}", e);
+                process::exit(1);
+            }
+            println!("Deploying contract from {}", contract_path);
+            deploy::execute_deploy(&contract_path).await;
+        }
+        Command::Tutorial => {
+            tutorial::run();
+        }
     }
-
-    println!("Deploying contract from {}", cli.contract_path);
-    deploy::execute_deploy(&cli.contract_path).await;
 }
 
 #[cfg(test)]
@@ -60,7 +79,6 @@ mod tests {
     fn rejects_wrong_extension() {
         let mut tmp = NamedTempFile::new().unwrap();
         writeln!(tmp, "dummy").unwrap();
-        // Rename to .txt extension by using a path with that suffix
         let txt_path = tmp.path().with_extension("txt");
         fs::copy(tmp.path(), &txt_path).unwrap();
         let result = validate_wasm_path(txt_path.to_str().unwrap());
