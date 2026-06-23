@@ -25,18 +25,45 @@ sharif-soroban-tools is a critical component of our decentralized ecosystem. Thi
 
 ### Local Installation
 
-\\\ash
-
+```bash
 # Clone the repository
-
 git clone https://github.com/YourOrganization/sharif-soroban-tools.git
 cd sharif-soroban-tools
 
 # Install dependencies and build
+npm install
+npm run build
 
-# (Refer to package.json or Cargo.toml for specific build commands)
+# Link the CLI for local use
+npm link
+```
 
-\\\
+## 🛠 CLI Usage
+
+The `sharif-soroban` CLI provides tools for rapid development.
+
+### Initialize a new project
+
+Scaffold a new Soroban contract project interactively:
+
+```bash
+sharif-soroban init
+```
+
+Or provide arguments directly:
+
+```bash
+sharif-soroban init my-project --template hello-world --network standalone
+```
+
+**Options:**
+- `project-name`: (Optional) The name of the directory to create.
+- `-t, --template <type>`: Template type (`empty`, `hello-world`, `token`). Default: `hello-world`.
+- `-n, --network <type>`: Network configuration (`testnet`, `standalone`). Default: `testnet`.
+
+### Deployment & Testing
+
+For contract deployment and integration testing, refer to the [Quickstart Guide](docs/quickstart.md).
 
 ## 🔍 Linting & Formatting
 
