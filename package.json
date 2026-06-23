@@ -8,7 +8,8 @@
     "lint:fix": "eslint . --fix",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
-    "test": "jest"
+    "test": "jest",
+    "test:integration": "docker compose up -d && echo 'Waiting for Stellar node...' && sleep 20 && jest tests/integration/deploy.test.ts --runInBand; docker compose down"
   },
   "keywords": [],
   "author": "",
