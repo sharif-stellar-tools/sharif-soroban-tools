@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+  stellar:
+    image: stellar/quickstart:soroban-dev
+    container_name: stellar-standalone
+    ports:
+      - "8000:8000"
+    command: >
+      --standalone
+      --enable-soroban-rpc
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
