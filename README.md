@@ -94,6 +94,13 @@ npm run format:check
 
 > **Tip:** Run `npm run lint` and `npm run format:check` before opening a Pull Request to ensure your code meets the project standards.
 
+## 📚 Documentation
+
+| Guide | Description |
+|-------|-------------|
+| [Quickstart](./docs/quickstart.md) | Scaffold, build, and deploy a Hello World Soroban contract from scratch |
+| [Signing Tutorial](./docs/signing-tutorial.md) | Step-by-step walkthrough of building and signing a Stellar transaction |
+
 ## 🤝 Contributing
 
 We welcome contributions from the community! Please read our [Contributing Guidelines](./CONTRIBUTING.md) to get started. Before submitting a Pull Request, ensure that you have reviewed our [Code of Conduct](./CODE_OF_CONDUCT.md).
