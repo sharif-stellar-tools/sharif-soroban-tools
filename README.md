@@ -65,6 +65,15 @@ sharif-soroban init my-project --template hello-world --network standalone
 
 For contract deployment and integration testing, refer to the [Quickstart Guide](docs/quickstart.md).
 
+### Fuzzing
+
+This project includes property-based fuzzing capabilities using the `arbitrary` crate and `cargo-fuzz`. Fuzzing automatically tests contracts against a wide range of unexpected inputs to find bugs and edge cases.
+
+See the [Fuzzing Guide](./docs/fuzzing.md) for detailed instructions on how to:
+- Run existing fuzz targets
+- Create custom fuzz targets
+- Integrate fuzzing into your CI/CD pipeline
+
 ## 🔍 Linting & Formatting
 
 This project uses [ESLint](https://eslint.org/) and [Prettier](https://prettier.io/) to enforce code quality and consistent formatting across all TypeScript/JavaScript sources.
