@@ -73,7 +73,7 @@ For a step-by-step walkthrough from zero to a live "Hello World" contract, see [
 ## Installation
 
 ```bash
-# Install from npm
+hi# Install from npm
 npm install sharif-soroban-tools
 ```
 

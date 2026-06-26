@@ -3,9 +3,17 @@
   "version": "1.0.0",
   "description": "Tooling for developing, testing, and deploying Soroban smart contracts.",
   "main": "index.js",
+  "bin": {
+    "sharif-soroban": "./dist/src/cli/index.js"
+  },
   "scripts": {
     "lint": "eslint .",
-    "test": "jest"
+    "lint:fix": "eslint . --fix",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "build": "tsc",
+    "test": "jest",
+    "test:integration": "docker compose up -d && echo 'Waiting for Stellar node...' && sleep 20 && jest tests/integration/deploy.test.ts --runInBand; docker compose down"
   },
   "keywords": [],
   "author": "",
@@ -19,6 +27,7 @@
     "node": ">=20"
   },
   "dependencies": {
+    "commander": "^15.0.0",
     "inquirer": "^9.3.7"
   },
   "devDependencies": {
@@ -27,7 +36,9 @@
     "@types/jest": "^29.5.14",
     "@types/node": "^20.19.0",
     "eslint": "^9.29.0",
+    "eslint-config-prettier": "^10.1.8",
     "jest": "^29.7.0",
+    "prettier": "^3.8.4",
     "ts-jest": "^29.4.0",
     "typescript": "^5.8.3",
     "typescript-eslint": "^8.34.0"

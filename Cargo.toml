@@ -1,0 +1,16 @@
+[package]
+name = "sharif-soroban-tools"
+version = "0.1.0"
+edition = "2021"
+
+[[bin]]
+name = "sharif-soroban-tools"
+path = "src/main.rs"
+
+[dependencies]
+clap = { version = "4", features = ["derive"] }
+tokio = { version = "1", features = ["full"] }
+
+[dev-dependencies]
+tempfile = "3"
+arbitrary = "1"

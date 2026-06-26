@@ -1,0 +1,27 @@
+[package]
+name = "sharif-soroban-tools-fuzz"
+version = "0.0.0"
+publish = false
+edition = "2021"
+
+[package.metadata]
+cargo-fuzz = true
+
+[dependencies]
+libfuzzer-sys = "0.4"
+arbitrary = "1"
+sharif-soroban-tools = { path = ".." }
+
+[[bin]]
+name = "validate_wasm"
+path = "fuzz_targets/validate_wasm.rs"
+test = false
+doc = false
+bench = false
+
+[[bin]]
+name = "deploy"
+path = "fuzz_targets/deploy.rs"
+test = false
+doc = false
+bench = false
