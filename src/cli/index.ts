@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 import { Command } from 'commander';
-import { runInit, scaffoldProject } from './init';
+import { runInit, scaffoldProject, InitAnswers } from './init';
 
 const program = new Command();
 
@@ -20,8 +20,8 @@ program
       // Direct scaffolding if project name is provided
       scaffoldProject({
         projectName,
-        templateType: options.template as any,
-        network: options.network as any,
+        templateType: options.template as InitAnswers['templateType'],
+        network: options.network as InitAnswers['network'],
       });
     } else {
       // Interactive mode if no project name is provided

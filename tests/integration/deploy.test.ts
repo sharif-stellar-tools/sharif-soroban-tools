@@ -16,7 +16,7 @@ describe('Contract Deployment Integration', () => {
     console.log('Generating and funding identity...');
     try {
         execSync(`soroban keys generate ${source} --overwrite --network ${network} --rpc-url ${rpcUrl}`, { stdio: 'inherit' });
-    } catch (e) {
+    } catch {
         // If generate fails, maybe it already exists or network is down
         console.warn('Key generation might have failed, attempting to fund anyway.');
     }

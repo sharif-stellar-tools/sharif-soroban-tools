@@ -30,9 +30,10 @@ export class CoreEngine {
       const contractId = output.trim();
       console.log(`Successfully deployed. Contract ID: ${contractId}`);
       return { success: true, contractId };
-    } catch (error: any) {
-      console.error('Deployment failed:', error.message);
-      return { success: false, error: error.message };
+    } catch (error: unknown) {
+      const message = error instanceof Error ? error.message : String(error);
+      console.error('Deployment failed:', message);
+      return { success: false, error: message };
     }
   }
 
@@ -53,9 +54,10 @@ export class CoreEngine {
       const wasmPath = path.join(projectDir, 'target', 'wasm32-unknown-unknown', 'release', `${snakeName}.wasm`);
 
       return { success: true, wasmPath };
-    } catch (error: any) {
-      console.error('Build failed:', error.message);
-      return { success: false, error: error.message };
+    } catch (error: unknown) {
+      const message = error instanceof Error ? error.message : String(error);
+      console.error('Build failed:', message);
+      return { success: false, error: message };
     }
   }
 
@@ -73,9 +75,10 @@ export class CoreEngine {
       const command = `soroban keys fund ${source} --network ${network} --rpc-url ${rpcUrl}`;
       execSync(command, { stdio: 'inherit' });
       return { success: true };
-    } catch (error: any) {
-      console.error('Funding failed:', error.message);
-      return { success: false, error: error.message };
+    } catch (error: unknown) {
+      const message = error instanceof Error ? error.message : String(error);
+      console.error('Funding failed:', message);
+      return { success: false, error: message };
     }
   }
 
