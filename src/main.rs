@@ -37,19 +37,22 @@ struct DiffArgs {
 }
 
 #[derive(Args)]
-struct EventReplayArgs {
+pub struct EventReplayArgs {
     /// Contract address to replay events for
     #[arg(short, long)]
-    contract_id: String,
+    pub contract_id: String,
     /// Starting ledger index
-    #[arg(short, long)]
-    from_ledger: u32,
+    #[arg(short, long, default_value_t = 0)]
+    pub from_ledger: u32,
     /// Ending ledger index
-    #[arg(short, long)]
-    to_ledger: u32,
+    #[arg(short, long, default_value_t = 0)]
+    pub to_ledger: u32,
     /// Print replayed events in JSON Lines format
     #[arg(long)]
-    jsonl: bool,
+    pub jsonl: bool,
+    /// Stream new contract events in real-time as they are written to the ledger
+    #[arg(long)]
+    pub tail: bool,
 }
 
 #[derive(Args)]
@@ -93,7 +96,7 @@ async fn main() {
             diff::execute_diff(&args.contract_a, &args.contract_b, &args.network);
         }
         Commands::EventReplay(args) => {
-            replay::execute_replay(&args.contract_id, args.from_ledger, args.to_ledger, args.jsonl);
+            replay::execute_replay(&args.contract_id, args.from_ledger, args.to_ledger, args.jsonl, args.tail).await;
         }
         Commands::Snapshot(args) => {
             match args.action {
